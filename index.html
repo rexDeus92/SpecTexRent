@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Аренда экскаваторов с водителем в Москве и Московской области. Подача техники на объект в день заказа. Собственный автопарк, быстрая замена при поломке, работаем по договору с НДС 20%.">
+    <title>Аренда экскаваторов с водителем в Москве | Подача в день заказа от SpecTexRent</title>
+    
+    <!-- CSS Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Панель настройки Telegram Bot (Панель Тестирования) -->
+    <div id="tg-config-panel" class="tg-config-panel collapsed">
+        <div class="panel-toggle" id="panel-toggle-btn" title="Настройки Telegram Bot">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+        </div>
+        <div class="panel-content">
+            <h4>Интеграция с Telegram</h4>
+            <p>Введите ваши реквизиты, чтобы получать лиды с форм сайта моментально на ваш канал или в чат.</p>
+            <div class="form-group-sm">
+                <label for="tg-token-input">Telegram Bot Token</label>
+                <input type="text" id="tg-token-input" placeholder="543210987:AAHdf8..." class="input-sm">
+            </div>
+            <div class="form-group-sm">
+                <label for="tg-chat-input">Chat ID / ID Канала</label>
+                <input type="text" id="tg-chat-input" placeholder="-10012345678" class="input-sm">
+            </div>
+            <button id="save-tg-config" class="btn btn-primary btn-sm btn-block">Сохранить настройки</button>
+            <p class="config-status" id="config-status-msg"></p>
+        </div>
+    </div>
+
+    <!-- Шапка сайта (Header) -->
+    <header class="header" id="header">
+        <div class="container header-container">
+            <a href="#" class="logo">
+                <div class="logo-icon"></div>
+                <div class="logo-text">
+                    <span class="logo-title">SPEC<span class="text-gold">TEX</span></span>
+                    <span class="logo-subtitle">Аренда спецтехники</span>
+                </div>
+            </a>
+            
+            <div class="trust-badges">
+                <div class="badge-item">
+                    <span class="badge-dot"></span>
+                    <span>Собственный автопарк</span>
+                </div>
+                <div class="badge-item">
+                    <span class="badge-dot"></span>
+                    <span>Работаем с НДС 20%</span>
+                </div>
+                <div class="badge-item">
+                    <span class="badge-dot"></span>
+                    <span>Договор и ЭДО</span>
+                </div>
+            </div>
+
+            <div class="header-contacts">
+                <a href="tel:+74951234567" class="phone-link">
+                    <span class="phone-num">+7 (495) 123-45-67</span>
+                    <span class="phone-desc">
+                        <span class="status-indicator"></span>
+                        Свободная техника готова к отправке
+                    </span>
+                </a>
+                <button class="btn btn-outline btn-sm open-modal-btn" data-modal="callback-modal">Заказать звонок</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Главный экран (Hero Section) -->
+    <section class="hero">
+        <div class="container hero-grid">
+            <div class="hero-left">
+                <div class="hero-tagline">
+                    <span class="hero-tagline-dot"></span>
+                    <span>Гарантия исправности: замена за 3 часа при поломке</span>
+                </div>
+                <h1 class="hero-title">Аренда экскаваторов с водителем в <span class="text-gold">Москве</span></h1>
+                <p class="hero-subtitle">Подача на объект в день заказа. Собственный автопарк из 48 машин. Полный бак топлива и опытный оператор входят в стоимость.</p>
+                
+                <div class="hero-features">
+                    <div class="hero-feature-card">
+                        <div class="feature-icon">🏗️</div>
+                        <h4>Любое навесное</h4>
+                        <p>Гидромолоты, узкие ковши, ямобуры и рыхлители всегда в наличии.</p>
+                    </div>
+                    <div class="hero-feature-card">
+                        <div class="feature-icon">🛡️</div>
+                        <h4>Договор и НДС 20%</h4>
+                        <p>Предоставляем полный комплект закрывающих документов через ЭДО.</p>
+                    </div>
+                    <div class="hero-feature-card">
+                        <div class="feature-icon">⏱️</div>
+                        <h4>Подача за 2-4 часа</h4>
+                        <p>Базируемся в 3 районах Москвы, быстрая логистика тралами.</p>
+                    </div>
+                </div>
+
+                <div class="hero-actions">
+                    <a href="#calc-section" class="btn btn-primary btn-lg btn-pulse">Рассчитать стоимость смены</a>
+                    <a href="#catalog-section" class="btn btn-glass btn-lg">Каталог техники</a>
+                </div>
+            </div>
+
+            <div class="hero-right">
+                <!-- Интерактивный Fleet Dashboard -->
+                <div class="hero-dashboard">
+                    <div class="dashboard-header">
+                        <span class="dashboard-title">Fleet Live Status</span>
+                        <div class="dashboard-indicator">
+                            <span class="status-indicator"></span>
+                            <span>Live мониторинг</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Симуляция карты -->
+                    <div class="map-simulation" id="map-simulation-container">
+                        <svg class="map-canvas-sim" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Схематичные дороги/районы -->
+                            <path d="M10 20 L90 20 M20 10 L20 90 M50 5 L50 95 M5 50 L95 50" stroke="rgba(255,255,255,0.06)" stroke-width="2" />
+                            <circle cx="50" cy="50" r="35" stroke="rgba(255, 159, 28, 0.15)" stroke-width="1" stroke-dasharray="4 4" />
+                            <circle cx="50" cy="50" r="10" stroke="rgba(255, 159, 28, 0.2)" stroke-width="1" />
+                        </svg>
+                        <div class="map-status-overlay">Карта охвата: Москва и МО (до 150 км от МКАД)</div>
+                    </div>
+
+                    <div class="dashboard-stats">
+                        <div class="stat-box">
+                            <div class="stat-val text-success" id="live-available-count">14</div>
+                            <div class="stat-lbl">Доступно к заказу сегодня</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-val" id="live-percentage">71%</div>
+                            <div class="stat-lbl">Машин на объектах</div>
+                        </div>
+                    </div>
+                    
+                    <div style="margin-top: 16px; font-size: 0.75rem; color: var(--text-secondary); text-align: center;">
+                        Всего в автопарке: <strong id="live-total-count">48</strong> единиц экскаваторной техники
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Коммерческие Преимущества (Advantages) -->
+    <section class="advantages">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="section-badge">Почему выбирают нас</span>
+                <h2 class="section-title">Надежный партнер для ваших строительных задач</h2>
+                <div class="section-divider"></div>
+            </div>
+
+            <div class="adv-grid">
+                <div class="adv-card">
+                    <div class="adv-icon-container">🚜</div>
+                    <h3>Свой автопарк</h3>
+                    <p>Никаких посредников. Все машины находятся в собственности компании, регулярно проходят ТО и застрахованы.</p>
+                </div>
+                <div class="adv-card">
+                    <div class="adv-icon-container">🛠️</div>
+                    <h3>Замена за 3 часа</h3>
+                    <p>В случае поломки на объекте, наша мобильная бригада приезжает за 1 час. Если ремонт невозможен — бесплатно доставим аналогичную исправную машину.</p>
+                </div>
+                <div class="adv-card">
+                    <div class="adv-icon-container">💼</div>
+                    <h3>Работа с НДС 20%</h3>
+                    <p>Предоставляем полный пакет бухгалтерских документов (УПД, рапорты ЭСМ-7). Полное соответствие требованиям ФНС.</p>
+                </div>
+                <div class="adv-card">
+                    <div class="adv-icon-container">👷</div>
+                    <h3>Опытные машинисты</h3>
+                    <p>Операторы 6-го разряда с гражданством РФ и опытом работы на сложных грунтах более 5 лет. Четко выполняют задачи прораба.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Интерактивный Каталог Техники (Catalog) -->
+    <section class="catalog" id="catalog-section">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="section-badge">Наш автопарк</span>
+                <h2 class="section-title">Каталог экскаваторов готовых к выезду</h2>
+                <p class="section-subtitle">Выберите подходящую категорию и настройте параметры поиска под задачи вашего объекта</p>
+                <div class="section-divider"></div>
+            </div>
+
+            <!-- Управление каталогом -->
+            <div class="catalog-controls">
+                <div class="catalog-tabs">
+                    <button class="catalog-tab-btn active" data-category="all">Все машины</button>
+                    <button class="catalog-tab-btn" data-category="crawler">Гусеничные</button>
+                    <button class="catalog-tab-btn" data-category="wheeled">Колесные</button>
+                    <button class="catalog-tab-btn" data-category="backhoe">Погрузчики</button>
+                    <button class="catalog-tab-btn" data-category="mini">Мини-экскаваторы</button>
+                </div>
+
+                <div class="catalog-filters">
+                    <div class="filter-group">
+                        <label for="filter-bucket">Объем ковша от:</label>
+                        <select id="filter-bucket" class="select-styled">
+                            <option value="0" selected>Все объемы</option>
+                            <option value="0.5">≥ 0.5 м³</option>
+                            <option value="1.0">≥ 1.0 м³</option>
+                            <option value="1.2">≥ 1.2 м³</option>
+                        </select>
+                    </div>
+
+                    <div class="filter-group">
+                        <label for="filter-weight">Вес от:</label>
+                        <select id="filter-weight" class="select-styled">
+                            <option value="0" selected>Любой вес</option>
+                            <option value="5">≥ 5 тонн</option>
+                            <option value="15">≥ 15 тонн</option>
+                            <option value="20">≥ 20 тонн</option>
+                        </select>
+                    </div>
+
+                    <div class="filter-group" style="margin-left: 10px;">
+                        <label class="option-card" style="padding: 10px 16px; border-radius: var(--radius-md); border-width: 1px; flex-direction: row; align-items: center; gap: 8px;">
+                            <input type="checkbox" id="filter-available-toggle" style="accent-color: var(--primary); width: 16px; height: 16px;">
+                            <span style="font-size: 0.85rem; font-weight: 500;">Только свободные</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Сетка карточек техники (динамический рендеринг через JS) -->
+            <div class="catalog-grid" id="catalog-grid">
+                <!-- Карточки будут добавлены динамически -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Интерактивный Калькулятор Стоимости (Calculator Quiz) -->
+    <section class="calculator-sec" id="calc-section">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="section-badge">Калькулятор аренды</span>
+                <h2 class="section-title">Рассчитайте точную стоимость за 5 шагов</h2>
+                <p class="section-subtitle">Ответьте на вопросы по вашему объекту и получите подробную смету со скидкой и подарком</p>
+                <div class="section-divider"></div>
+            </div>
+
+            <div class="calc-wrapper">
+                <!-- Левая интерактивная часть -->
+                <div class="calc-left">
+                    <!-- Шаги прогресса -->
+                    <div class="calc-steps-indicator">
+                        <div class="calc-progress-line" id="calc-progress-line" style="width: 0%;"></div>
+                        <div class="step-bubble active" data-step-num="1">1</div>
+                        <div class="step-bubble" data-step-num="2">2</div>
+                        <div class="step-bubble" data-step-num="3">3</div>
+                        <div class="step-bubble" data-step-num="4">4</div>
+                        <div class="step-bubble" data-step-num="5">5</div>
+                    </div>
+
+                    <!-- Контент шагов -->
+                    <div class="calc-step-body" data-step="1">
+                        <h3 class="calc-step-title">Шаг 1: Выберите модель техники</h3>
+                        <div class="option-cards-grid">
+                            <div class="option-card selected" data-model-id="crawler-heavy">
+                                <div class="option-radio"></div>
+                                <div class="option-info">
+                                    <span class="option-title">Гусеничный CAT 320 (22 т)</span>
+                                    <span class="option-desc">Для тяжелых земляных работ, ковш 1.2 м³</span>
+                                </div>
+                            </div>
+                            <div class="option-card" data-model-id="wheeled-heavy">
+                                <div class="option-radio"></div>
+                                <div class="option-info">
+                                    <span class="option-title">Колесный JCB JS160W (17 т)</span>
+                                    <span class="option-desc">Мобильный, для городских условий, ковш 0.9 м³</span>
+                                </div>
+                            </div>
+                            <div class="option-card" data-model-id="backhoe-standard">
+                                <div class="option-radio"></div>
+                                <div class="option-info">
+                                    <span class="option-title">Экскаватор-погрузчик JCB 3CX</span>
+                                    <span class="option-desc">Универсальный, копание и погрузка грузов</span>
+                                </div>
+                            </div>
+                            <div class="option-card" data-model-id="mini-standard">
+                                <div class="option-radio"></div>
+                                <div class="option-info">
+                                    <span class="option-title">Мини-экскаватор Kubota U27</span>
+                                    <span class="option-desc">Для стесненных условий и траншей, вес 2.6 т</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="calc-step-body hidden" data-step="2">
+                        <h3 class="calc-step-title">Шаг 2: Укажите срок аренды</h3>
+                        <div class="slider-group">
+                            <div class="slider-header">
+                                <span class="slider-lbl">Количество рабочих смен:</span>
+                                <span class="slider-val-box" id="shifts-val">1 смена</span>
+                            </div>
+                            <input type="range" id="calc-shifts" class="range-slider-input" min="1" max="30" value="1">
+                            <div class="slider-ticks">
+                                <span>1 смена</span>
+                                <span>10 смен</span>
+                                <span>20 смен</span>
+                                <span>30 смен</span>
+                            </div>
+                        </div>
+
+                        <div class="discount-alert-badge hidden" id="discount-alert">
+                            <span>🎉</span>
+                            <span>Применена скидка за объем: экономия <strong id="discount-saved-val">0 ₽</strong></span>
+                        </div>
+                        <div style="margin-top: 24px; font-size: 0.85rem; color: var(--text-secondary);">
+                            * От 5 смен — скидка <strong>10%</strong>. От 15 смен — скидка <strong>20%</strong> на стоимость работы.
+                        </div>
+                    </div>
+
+                    <div class="calc-step-body hidden" data-step="3">
+                        <h3 class="calc-step-title">Шаг 3: Удаленность объекта от МКАД</h3>
+                        <div class="slider-group">
+                            <div class="slider-header">
+                                <span class="slider-lbl">Расстояние доставки техники (в одну сторону):</span>
+                                <span class="slider-val-box" id="distance-val">0 км</span>
+                            </div>
+                            <input type="range" id="calc-distance" class="range-slider-input" min="0" max="150" value="0">
+                            <div class="slider-ticks">
+                                <span>В черте МКАД (0 км)</span>
+                                <span>50 км</span>
+                                <span>100 км</span>
+                                <span>150 км</span>
+                            </div>
+                        </div>
+                        <div style="margin-top: 24px; font-size: 0.85rem; color: var(--text-secondary);">
+                            * Доставка в пределах МКАД — бесплатная. За МКАД рассчитывается по ставке: 5 000 руб подача трала + 100 руб/км.
+                        </div>
+                    </div>
+
+                    <div class="calc-step-body hidden" data-step="4">
+                        <h3 class="calc-step-title">Шаг 4: Дополнительные опции</h3>
+                        <div class="checkbox-cards-grid">
+                            <div class="checkbox-card" data-option-val="hammer">
+                                <div class="checkbox-box"></div>
+                                <div class="checkbox-info">
+                                    <span class="option-title">Гидромолот</span>
+                                    <span class="option-desc">Для разрушения бетона и асфальта (+3 000 ₽ / смена)</span>
+                                </div>
+                            </div>
+                            <div class="checkbox-card" data-option-val="narrow">
+                                <div class="checkbox-box"></div>
+                                <div class="checkbox-info">
+                                    <span class="option-title">Узкий траншейный ковш</span>
+                                    <span class="option-desc">Для прокладки кабелей и труб (+1 500 ₽ / смена)</span>
+                                </div>
+                            </div>
+                            <div class="checkbox-card" data-option-val="operator">
+                                <div class="checkbox-box"></div>
+                                <div class="checkbox-info">
+                                    <span class="option-title">Холодная аренда</span>
+                                    <span class="option-desc">Без нашего машиниста и топлива (-4 000 ₽ / смена)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="calc-step-body hidden" data-step="5">
+                        <div class="calc-form-wrapper">
+                            <h3>Расчет готов! Укажите ваши контакты для фиксации сметы</h3>
+                            <p>Мы отправим подробную смету в WhatsApp и закрепим за вашим номером скидку и подарок к договору.</p>
+                            
+                            <form id="quiz-lead-form">
+                                <!-- Скрытые поля для отправки в Telegram -->
+                                <input type="hidden" id="calc-hidden-price" name="calc_calculated_price" value="">
+                                <input type="hidden" id="calc-hidden-summary" name="calc_summary" value="">
+
+                                <div class="form-input-group">
+                                    <input type="text" name="name" class="form-input-field" placeholder="Ваше имя" required>
+                                </div>
+                                <div class="form-input-group">
+                                    <input type="tel" name="phone" class="form-input-field" placeholder="Контактный телефон (+7)" required>
+                                </div>
+
+                                <div style="margin-bottom: 20px;">
+                                    <span style="font-size: 0.85rem; font-weight: 600; display: block; margin-bottom: 10px;">Выберите подарок к договору:</span>
+                                    <div style="display: flex; gap: 12px;">
+                                        <label class="option-card" style="padding: 10px 16px; border-radius: var(--radius-sm); border-width: 1px; flex-direction: row; align-items: center; gap: 8px; flex: 1;">
+                                            <input type="radio" name="gift" value="fuel" checked style="accent-color: var(--primary);">
+                                            <span style="font-size: 0.85rem;">Канистра топлива</span>
+                                        </label>
+                                        <label class="option-card" style="padding: 10px 16px; border-radius: var(--radius-sm); border-width: 1px; flex-direction: row; align-items: center; gap: 8px; flex: 1;">
+                                            <input type="radio" name="gift" value="hour" style="accent-color: var(--primary);">
+                                            <span style="font-size: 0.85rem;">+1 час работы бесплатно</span>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <button type="submit" class="btn btn-primary btn-block btn-lg">Зафиксировать цену и получить подарок</button>
+                                <p style="font-size: 0.7rem; color: var(--text-muted); text-align: center; margin-top: 10px; margin-bottom: 0;">
+                                    Нажимая кнопку, вы соглашаетесь с обработкой персональных данных.
+                                </p>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- Кнопки управления шагами -->
+                    <div class="calc-nav-buttons">
+                        <button class="btn btn-outline" id="calc-prev" disabled>← Назад</button>
+                        <button class="btn btn-primary" id="calc-next">Далее →</button>
+                    </div>
+                </div>
+
+                <!-- Правая часть с результатами в реальном времени -->
+                <div class="calc-right">
+                    <div>
+                        <h3 class="calc-summary-title">Детализация расчета</h3>
+                        <div class="calc-summary-list">
+                            <div class="summary-row">
+                                <span>Техника:</span>
+                                <span id="summary-model">Гусеничный CAT 320</span>
+                            </div>
+                            <div class="summary-row">
+                                <span>Срок аренды:</span>
+                                <span id="summary-duration">1 смена</span>
+                            </div>
+                            <div class="summary-row">
+                                <span>Доставка на объект:</span>
+                                <span id="summary-delivery">В пределах МКАД (0 ₽)</span>
+                            </div>
+                            <div class="summary-row">
+                                <span>Опции:</span>
+                                <span id="summary-options">Стандартная комплектация</span>
+                            </div>
+                            <div class="summary-row">
+                                <span>Тип оплаты:</span>
+                                <span id="summary-payment">С НДС 20%</span>
+                            </div>
+                        </div>
+
+                        <div class="filter-group" style="margin-bottom: 20px;">
+                            <label for="calc-payment" style="font-size: 0.8rem; display: block; margin-bottom: 8px;">Изменить способ оплаты:</label>
+                            <select id="calc-payment" class="select-styled" style="width: 100%;">
+                                <option value="vat20" selected>Работа по договору с НДС 20%</option>
+                                <option value="novat">Оплата без НДС (ООО / ИП)</option>
+                                <option value="card">Наличные / Банковская карта</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="calc-final-price-box">
+                            <span class="calc-price-lbl">Ориентировочная стоимость:</span>
+                            <span class="calc-price-val" id="calc-final-price">22 000 ₽</span>
+                            <div class="calc-discount-saved" style="font-size: 0.75rem;">Цена зафиксирована с НДС 20%</div>
+                        </div>
+
+                        <div class="calc-trust-bullets">
+                            <div class="calc-trust-bullet">
+                                <span class="calc-bullet-dot"></span>
+                                <span>Включает работу оператора и заправку</span>
+                            </div>
+                            <div class="calc-trust-bullet">
+                                <span class="calc-bullet-dot"></span>
+                                <span>Заключаем договор перед подачей</span>
+                            </div>
+                            <div class="calc-trust-bullet">
+                                <span class="calc-bullet-dot"></span>
+                                <span>Быстрая замена при неисправности</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Блок работы с НДС и юридических условий -->
+    <section class="vat-section">
+        <div class="container">
+            <div class="vat-card">
+                <div class="vat-left">
+                    <span class="section-badge">Юридическая чистота</span>
+                    <h2>Работаем по договору с НДС 20% и ЭДО</h2>
+                    <p>Мы ценим прозрачность и юридическую безопасность. Все сделки оформляются официально. Предоставляем полный пакет закрывающих документов точно в срок для вашей бухгалтерии.</p>
+                    
+                    <div class="vat-pills">
+                        <div class="vat-pill">
+                            <div class="vat-pill-icon">✓</div>
+                            <div class="vat-pill-text">
+                                <h4>Регистрация в ФНС и прозрачность</h4>
+                                <p>Компания имеет высокий рейтинг благонадежности. Отсутствие рисков отказа в налоговых вычетах по НДС.</p>
+                            </div>
+                        </div>
+                        <div class="vat-pill">
+                            <div class="vat-pill-icon">✓</div>
+                            <div class="vat-pill-text">
+                                <h4>Мгновенный документооборот через ЭДО</h4>
+                                <p>Подключаем Диадок / СБИС. Обмен оригиналами договоров, счетов и рапортов за 1 минуту.</p>
+                            </div>
+                        </div>
+                        <div class="vat-pill">
+                            <div class="vat-pill-icon">✓</div>
+                            <div class="vat-pill-text">
+                                <h4>Фиксированная стоимость в договоре</h4>
+                                <p>Никаких накруток за переработку или скрытых платежей за доставку. Стоимость смены фиксируется.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="vat-right">
+                    <span class="vat-doc-badge">Спецификация</span>
+                    <h3 class="vat-doc-title">Условия работы по договору</h3>
+                    
+                    <div class="vat-doc-row">
+                        <span>Минимальный заказ:</span>
+                        <span>1 смена (7+1 часов)</span>
+                    </div>
+                    <div class="vat-doc-row">
+                        <span>Подача за МКАД:</span>
+                        <span>5000 руб + 100 руб/км</span>
+                    </div>
+                    <div class="vat-doc-row">
+                        <span>Топливо:</span>
+                        <span>Включено (ДТ ГОСТ)</span>
+                    </div>
+                    <div class="vat-doc-row">
+                        <span>Экипаж (Машинист):</span>
+                        <span>Включен (смена 8 часов)</span>
+                    </div>
+                    
+                    <div class="vat-doc-divider"></div>
+                    
+                    <div class="vat-doc-row">
+                        <span>Ставка НДС:</span>
+                        <span>20% (входит в стоимость)</span>
+                    </div>
+                    <div class="vat-doc-row" style="color: var(--success); font-weight: 600;">
+                        <span>Закрывающие доки:</span>
+                        <span>УПД, ЭСМ-7 (по ЭДО)</span>
+                    </div>
+                    
+                    <div style="margin-top: 24px;">
+                        <button class="btn btn-outline btn-block open-modal-btn" data-modal="contract-modal">Скачать образец договора (PDF)</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Раздел Контактов и Экспресс-Вызова (Contacts) -->
+    <section class="contacts-sec" id="contacts-section">
+        <div class="container">
+            <div class="contacts-grid">
+                
+                <div class="contacts-info">
+                    <div>
+                        <h2>Свяжитесь с нами сегодня</h2>
+                        <p>Наш офис и базы спецтехники открыты для сотрудничества. Оставьте заявку, и мы согласуем логистику трала на ваш объект.</p>
+                    </div>
+
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">📍</div>
+                            <div class="contact-text">
+                                <h4>Адрес главного офиса:</h4>
+                                <p>г. Москва, ул. Большая Дорогомиловская, д. 14, офис 204</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">📞</div>
+                            <div class="contact-text">
+                                <h4>Многоканальный телефон:</h4>
+                                <a href="tel:+74951234567" class="text-gold">+7 (495) 123-45-67</a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">✉️</div>
+                            <div class="contact-text">
+                                <h4>Отдел аренды (email):</h4>
+                                <p>rent@spectex-rent.ru</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="font-size: 0.8rem; color: var(--text-secondary);">
+                        ООО «СПЕЦТЕХАРЕНДА», ОГРН 1237700456789, ИНН 7730123456
+                    </div>
+                </div>
+
+                <div class="contacts-form-box">
+                    <h3>Оставить заявку на подбор техники</h3>
+                    <p>Заполните форму, и наш дежурный логист перезвонит вам для уточнения деталей объекта и стоимости подачи.</p>
+                    
+                    <form id="contacts-form-elem">
+                        <div class="form-input-group">
+                            <input type="text" name="name" class="form-input-field" placeholder="Ваше имя" required>
+                        </div>
+                        <div class="form-input-group">
+                            <input type="tel" name="phone" class="form-input-field" placeholder="Контактный телефон" required>
+                        </div>
+                        <div class="form-input-group">
+                            <textarea name="comment" class="form-input-field" placeholder="Какая техника и на какой срок вам необходима?" style="min-height: 100px; resize: vertical; font-family: inherit;"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block btn-lg">Отправить заявку</button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Подвал сайта (Footer) -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-info">
+                    <a href="#" class="logo footer-logo">
+                        <div class="logo-icon"></div>
+                        <div class="logo-text">
+                            <span class="logo-title">SPEC<span class="text-gold">TEX</span></span>
+                            <span class="logo-subtitle">Аренда спецтехники</span>
+                        </div>
+                    </a>
+                    <p class="footer-desc">Быстрая аренда строительных экскаваторов с опытными операторами. Собственные стоянки на Севере, Юге и Западе Москвы. Работаем круглосуточно 24/7.</p>
+                </div>
+
+                <div class="footer-links-col">
+                    <h4>Услуги</h4>
+                    <ul>
+                        <li><a href="#catalog-section">Гусеничные экскаваторы</a></li>
+                        <li><a href="#catalog-section">Колесные экскаваторы</a></li>
+                        <li><a href="#catalog-section">Экскаваторы-погрузчики</a></li>
+                        <li><a href="#catalog-section">Мини-экскаваторы</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links-col">
+                    <h4>Клиентам</h4>
+                    <ul>
+                        <li><a href="#calc-section">Калькулятор сметы</a></li>
+                        <li><a href="#catalog-section">Свободная техника</a></li>
+                        <li><a href="#contacts-section">Контакты офиса</a></li>
+                        <li><a href="#header">Заказать звонок</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links-col">
+                    <h4>Юридическая инфо</h4>
+                    <ul>
+                        <li><a href="#" class="open-modal-btn" data-modal="contract-modal">Договор аренды с НДС</a></li>
+                        <li><a href="#">Политика конфиденциальности</a></li>
+                        <li><a href="#">Карточка реквизитов</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <span>© 2026 SpecTexRent. Все права защищены. Разработка сайта выполнена в premium-стиле.</span>
+                <div class="footer-bottom-links">
+                    <a href="#">Пользовательское соглашение</a>
+                    <a href="#">Согласие на обработку данных</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Модальное окно: Заказ обратного звонка (Callback Modal) -->
+    <div class="modal-overlay" id="callback-modal">
+        <div class="modal-card">
+            <div class="modal-close">×</div>
+            <div class="modal-body">
+                <h3>Заказать обратный звонок</h3>
+                <p>Мы перезвоним вам в течение 60 секунд. Дежурный оператор ответит на все вопросы.</p>
+                
+                <form id="callback-form-elem">
+                    <div class="form-input-group">
+                        <input type="text" name="name" class="form-input-field" placeholder="Ваше имя" required>
+                    </div>
+                    <div class="form-input-group">
+                        <input type="tel" name="phone" class="form-input-field" placeholder="Ваш телефон" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">Жду звонка</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Модальное окно: Договор (Contract Modal) -->
+    <div class="modal-overlay" id="contract-modal">
+        <div class="modal-card">
+            <div class="modal-close">×</div>
+            <div class="modal-body" style="max-height: 90vh; overflow-y: auto;">
+                <h3>Образец договора аренды</h3>
+                <p>Вы можете скачать образец типового договора аренды строительной техники с НДС 20%.</p>
+                
+                <div style="background-color: var(--bg-main); padding: 20px; border-radius: var(--radius-md); border: 1px solid var(--border-color); font-size: 0.8rem; margin-bottom: 20px; text-align: left; line-height: 1.5;">
+                    <strong style="display: block; text-align: center; margin-bottom: 10px;">ДОГОВОР АРЕНДЫ СПЕЦТЕХНИКИ № 2026/А-12</strong>
+                    г. Москва <span style="float: right;">«__» _________ 2026 г.</span>
+                    <br><br>
+                    ООО «СПЕЦТЕХАРЕНДА», именуемое в дальнейшем «Арендодатель», в лице Генерального директора Иванова И.И., действующего на основании Устава, с одной стороны, и __________________, именуемое в дальнейшем «Арендатор», заключили настоящий Договор о нижеследующем:
+                    <br><br>
+                    <strong>1. ПРЕДМЕТ ДОГОВОРА</strong><br>
+                    1.1. Арендодатель обязуется предоставить Арендатору во временное владение и пользование строительную технику (Экскаватор) с экипажем (машинистом), а Арендатор обязуется принять технику, выплатить арендную плату и вернуть технику Арендодателю в исправном состоянии.
+                    <br><br>
+                    <strong>2. СТОИМОСТЬ И ПОРЯДОК РАСЧЕТОВ</strong><br>
+                    2.1. Стоимость аренды рассчитывается исходя из стоимости одной машино-смены (7 часов работы + 1 час подачи). Ставка НДС 20% включена.
+                    <br>
+                    2.2. Оплата производится на основании выставленных счетов Арендодателя по ЭДО.
+                </div>
+                
+                <div style="display: flex; gap: 12px;">
+                    <a href="#" class="btn btn-primary btn-block" onclick="alert('Скачивание начнется автоматически'); return false;">Скачать PDF (145 Кб)</a>
+                    <button class="btn btn-outline modal-close" style="flex: 1;">Закрыть</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Core Script -->
+    <script src="script.js"></script>
+</body>
+</html>
