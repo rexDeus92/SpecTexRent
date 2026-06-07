@@ -897,8 +897,28 @@ document.addEventListener('DOMContentLoaded', () => {
                     <p style="font-size: 0.85rem; color: var(--success); font-weight: 600;">Машина зарезервирована за вашим номером на 24 часа.</p>
                 </div>
             `;
-            // Hide prev button
-            if (prevBtn) prevBtn.classList.add('hidden');
+        });
+    }
+
+    // ==========================================
+    // 9. Scroll Reveal Animations (IntersectionObserver)
+    // ==========================================
+    const revealElements = document.querySelectorAll('.reveal');
+    if (revealElements.length > 0) {
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target); // Trigger animation only once
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -40px 0px'
+        });
+
+        revealElements.forEach(el => {
+            revealObserver.observe(el);
         });
     }
 });
