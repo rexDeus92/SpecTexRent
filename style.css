@@ -438,7 +438,7 @@ img {
 /* Hero Section */
 .hero {
     position: relative;
-    padding: 180px 0 100px;
+    padding: 0px 0 100px;
     min-height: 100vh;
     display: flex;
     align-items: center;
