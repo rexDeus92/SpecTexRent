@@ -247,11 +247,10 @@ img {
 /* Telegram Admin Panel Panel */
 .tg-config-panel {
     position: fixed;
-    bottom: 24px;
-    left: 24px;
+    bottom: 35px;
+    right: 130px;
     z-index: 999;
     background: var(--bg-surface-elevated);
-    border: 1px solid var(--border-color);
     border-radius: var(--radius-md);
     box-shadow: var(--shadow-lg);
     width: 300px;
@@ -438,7 +437,7 @@ img {
 /* Hero Section */
 .hero {
     position: relative;
-    padding: 0px 0 100px;
+    padding: 90px 0 100px;
     min-height: 100vh;
     display: flex;
     align-items: center;
